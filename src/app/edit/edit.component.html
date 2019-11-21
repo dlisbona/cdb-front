@@ -1,0 +1,31 @@
+<div mat-dialog-content [formGroup]="myGroup">
+  <mat-form-field floatLabel="always">
+    <mat-label>Computer name</mat-label>
+    <input matInput [(ngModel)]="data.name" value="{{data.computerSwagger.name}}" formControlName="name" >
+  </mat-form-field>
+  
+  <mat-form-field floatLabel="always">
+    <mat-label>Date introduced </mat-label>
+    <input matInput [(ngModel)]="data.introduced" [matDatepicker]="myDatepicker"  value="{{data.computerSwagger.introduced}}" formControlName="introduced" >
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker ></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always">
+      <mat-label>Date discontinued</mat-label>
+      <input matInput [(ngModel)]="data.discontinued" [matDatepicker]="myDatepicker1" value="{{data.computerSwagger.discontinued}}" formControlName="discontinued" > 
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker1></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always">
+      <mat-label>Company name</mat-label>
+    <input matInput [(ngModel)]="data.company" value="{{data.computerSwagger.company.name}}" formControlName="companyName" >
+      </mat-form-field>
+  </div>
+
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Edit</button>
+  
+</div>
